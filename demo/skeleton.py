@@ -10,13 +10,23 @@ plt.figure(1)
 plt.title('origin')
 plt.imshow(image, 'gray')
 
-image_lap = cv2.Laplacian(image, cv2.CV_16S, ksize = 3)
+image_lap = cv2.Laplacian(image, cv2.CV_16S, ksize=3)
 dst = cv2.convertScaleAbs(image_lap)
 
 plt.figure(2)
-plt.title('laplacian')
-plt.imshow(dst, 'gray')
+plt.title('lap')
+plt.imshow(image - image_lap / 4, 'gray')
 
+image_lap = image_lap + 255
+dst2 = cv2.convertScaleAbs(image_lap)
+
+plt.figure(3)
+plt.title('lap2')
+plt.imshow(image_lap / 2, 'gray')
+
+
+
+'''
 image.astype('int16')
 image_add = image - image_lap 
 image_add = cv2.convertScaleAbs(image_add)
@@ -39,5 +49,7 @@ plt.subplot(1, 3, 2)
 plt.imshow(absY, 'gray')
 plt.subplot(1, 3, 3)
 plt.imshow(dst, 'gray')
+'''
 
 plt.show()
+
