@@ -11,6 +11,7 @@ plt.imshow(image, 'gray')
 
 fft_transform = np.fft.fft2(image)
 fft_transform = np.fft.fftshift(fft_transform)
+print(type(fft_transform))
 plt.subplot(2,4,2)
 plt.title('fft image')
 plt.imshow(np.log(abs(fft_transform)), 'gray')
